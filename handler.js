@@ -35,7 +35,7 @@ module.exports.corsProxy = async (event) => {
       }, [])
       .join('&');
 
-    const url = `${params.url}${requestParams}`;
+    const url = `${params.url}&${requestParams}`;
     const hasBody = /(POST|PUT)/i.test(event.httpMethod);
     try {
       const res = await fetch(url, {
